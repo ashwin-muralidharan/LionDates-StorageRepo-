@@ -1,0 +1,57 @@
+/* Remove font import - already in index.html */
+/* Base Styles */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Enhanced Body Styles */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #f8fafc;
+  color: #1e293b;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Better Link Styles */
+a {
+  color: #1e40af;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #3b82f6;
+  text-decoration: underline;
+}
+
+/* Add these new utility classes */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.full-height {
+  min-height: 100vh;
+}
+
+.text-primary {
+  color: #1e40af;
+}
+
+/* Fix for Material-UI icons alignment */
+.MuiSvgIcon-root {
+  vertical-align: middle;
+}
+
+/* Better focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid #1e40af;
+  outline-offset: 2px;
+}
