@@ -14,11 +14,11 @@ import WarningIcon from '@mui/icons-material/Warning';
 const DashboardOrders = () => {
   // Sample data
   const [orders, setOrders] = useState([
-    { id: 1, productName: 'Dates Jam (500g)', quantity: 50, orderDate: '2023-05-01', status: 'Pending' },
-    { id: 2, productName: 'Premium Dates (1kg)', quantity: 30, orderDate: '2023-05-02', status: 'Processing' },
-    { id: 3, productName: 'Amla in Honey (250ml)', quantity: 75, orderDate: '2023-05-03', status: 'Shipped' },
-    { id: 4, productName: 'Almond in Honey (400g)', quantity: 42, orderDate: '2023-05-04', status: 'Pending' },
-    { id: 5, productName: 'Medjool Dates (200g)', quantity: 68, orderDate: '2023-05-05', status: 'Processing' },
+    { id: 1, customerName: 'Akash', productName: 'Dates Jam (500g)', quantity: 50, orderDate: '2023-05-01', status: 'Pending' },
+    { id: 2, customerName: 'Rakesh', productName: 'Premium Dates (1kg)', quantity: 30, orderDate: '2023-05-02', status: 'Processing' },
+    { id: 3, customerName: 'Charan', productName: 'Amla in Honey (250ml)', quantity: 75, orderDate: '2023-05-03', status: 'Shipped' },
+    { id: 4, customerName: 'Ashwin', productName: 'Almond in Honey (400g)', quantity: 42, orderDate: '2023-05-04', status: 'Pending' },
+    { id: 5, customerName: 'Maneesh', productName: 'Medjool Dates (200g)', quantity: 68, orderDate: '2023-05-05', status: 'Processing' },
   ]);
 
   const [products, setProducts] = useState([
@@ -36,6 +36,7 @@ const DashboardOrders = () => {
     if (file) {
       const newOrder = {
         id: orders.length + 1,
+        customerName: `Customer ${orders.length + 1}`,
         productName: `New Product ${orders.length + 1}`,
         quantity: Math.floor(Math.random() * 100) + 1,
         orderDate: new Date().toISOString().split('T')[0],
@@ -104,9 +105,17 @@ const DashboardOrders = () => {
       cellClassName: 'centered-cell' 
     },
     { 
+      field: 'customerName', 
+      headerName: 'CUSTOMER', 
+      width: 200, 
+      headerAlign: 'center', 
+      align: 'center',
+      cellClassName: 'centered-cell' 
+    },
+    { 
       field: 'productName', 
       headerName: 'PRODUCT', 
-      width: 300, 
+      width: 250, 
       headerAlign: 'center', 
       align: 'center',
       cellClassName: 'centered-cell' 
@@ -114,7 +123,7 @@ const DashboardOrders = () => {
     { 
       field: 'quantity', 
       headerName: 'QTY', 
-      width: 150, 
+      width: 120, 
       headerAlign: 'center', 
       align: 'center',
       cellClassName: 'centered-cell' 
@@ -122,7 +131,7 @@ const DashboardOrders = () => {
     { 
       field: 'orderDate', 
       headerName: 'ORDER DATE', 
-      width: 200, 
+      width: 180, 
       headerAlign: 'center', 
       align: 'center',
       cellClassName: 'centered-cell' 
@@ -130,7 +139,7 @@ const DashboardOrders = () => {
     { 
       field: 'status', 
       headerName: 'STATUS', 
-      width: 200, 
+      width: 180, 
       headerAlign: 'center', 
       align: 'center',
       renderCell: renderStatusCell,
@@ -239,7 +248,7 @@ const DashboardOrders = () => {
         flex: 1,
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center', // Center everything horizontally
+        alignItems: 'center',
         gap: 4
       }}>
         {/* Upload Button */}
